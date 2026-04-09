@@ -170,22 +170,34 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.innerHTML = '<span>Envoi en cours…</span>';
       btn.disabled = true;
 
-      // Paramètres envoyés au template EmailJS
-      const templateParams = {
-        prenom:    form.querySelector('[name="prenom"]')?.value   || '',
-        email:     form.querySelector('[name="email"]')?.value    || '',
-        message:   form.querySelector('[name="message"]')?.value  || '',
-        nom:       form.querySelector('[name="nom"]')?.value      || '',
-        telephone: form.querySelector('[name="telephone"]')?.value || '',
-        activite:  form.querySelector('[name="activite"]')?.value  || '',
-        type_site: form.querySelector('[name="type_site"]')?.value || '',
-        budget:    form.querySelector('[name="budget"]')?.value    || '',
-      };
+      const prenom   = form.querySelector('[name="prenom"]')?.value   || '';
+      const email    = form.querySelector('[name="email"]')?.value    || '';
+      const message  = form.querySelector('[name="message"]')?.value  || '';
 
       try {
-        await emailjs.send('Site internet', 'template_1ma04fj', templateParams);
+        /* 1. Formspree — vous recevez le devis par email */
+        const formspreeRes = await fetch('https://formspree.io/f/xgopbgzl', {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!formspreeRes.ok) throw new Error('Formspree error');
 
-        // Succès — message visible sur la page
+        /* 2. EmailJS — le client reçoit un email de confirmation */
+        if (typeof emailjs !== 'undefined') {
+          await emailjs.send('Site internet', 'template_1ma04fj', {
+            prenom,
+            email,
+            message,
+            nom:       form.querySelector('[name="nom"]')?.value      || '',
+            telephone: form.querySelector('[name="telephone"]')?.value || '',
+            activite:  form.querySelector('[name="activite"]')?.value  || '',
+            type_site: form.querySelector('[name="type_site"]')?.value || '',
+            budget:    form.querySelector('[name="budget"]')?.value    || '',
+          });
+        }
+
+        /* 3. Message de succès sur la page */
         form.innerHTML = `
           <div class="form-success">
             <div class="success-icon">
@@ -194,12 +206,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <path d="M8 12l3 3 5-5"/>
               </svg>
             </div>
-            <h3>Demande envoyée, ${templateParams.prenom} !</h3>
-            <p>Un email de confirmation vient de vous être envoyé à <strong>${templateParams.email}</strong>.<br>Je vous réponds avec votre devis sous 24 heures.</p>
+            <h3>Demande envoyée${prenom ? ', ' + prenom : ''} !</h3>
+            <p>Je vous réponds avec votre devis sous 24 heures.<br>
+            ${email ? 'Un email de confirmation a été envoyé à <strong>' + email + '</strong>.' : ''}</p>
           </div>
         `;
+
       } catch (err) {
-        // Erreur — bouton réactivé + message d'erreur
         btn.innerHTML = 'Réessayer';
         btn.disabled = false;
         const errBox = document.createElement('p');
