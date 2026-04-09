@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Folio — Création de sites internet sur mesure</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Folio crée votre site internet sur mesure : site vitrine, boutique e-commerce, landing page. Design moderne, responsive et livré rapidement.">
+  <meta name="keywords" content="création site internet, site vitrine, e-commerce, landing page, freelance web, développement web">
+  <meta name="author" content="Folio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://folio-web.fr/">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://folio-web.fr/">
+  <meta property="og:title"       content="Folio — Création de sites internet sur mesure">
+  <meta property="og:description" content="Votre site internet professionnel, livré en 1 à 3 semaines. Site vitrine, e-commerce, landing page.">
+  <meta property="og:image"       content="https://folio-web.fr/og-image.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Folio — Création de sites internet">
+  <meta name="twitter:description" content="Votre site professionnel, livré rapidement et sur mesure.">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Folio",
+    "description": "Création de sites internet sur mesure : vitrine, e-commerce, landing page",
+    "url": "https://folio-web.fr",
+    "telephone": "+33-6-00-00-00-00",
+    "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: var(--nav-h);
+    }
+    .hero-blob-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(127,119,221,0.18) 0%, transparent 70%);
+      top: -80px; left: -120px;
+    }
+    .hero-blob-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(91,84,184,0.12) 0%, transparent 70%);
+      bottom: 0; right: -100px;
+    }
+
+    /* CSS Particles */
+    .particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    .particle {
+      position: absolute; border-radius: 50%; background: var(--accent);
+      opacity: 0; animation: float-particle linear infinite;
+    }
+    @keyframes float-particle {
+      0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+      10%  { opacity: 0.5; }
+      90%  { opacity: 0.2; }
+      100% { transform: translateY(-20px) scale(1); opacity: 0; }
+    }
+
+    .hero-content {
+      text-align: center; max-width: 860px;
+      padding: 0 24px; position: relative; z-index: 2;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 18px;
+      background: rgba(127,119,221,0.1);
+      border: 1px solid rgba(127,119,221,0.2);
+      border-radius: 100px; font-size: 13px;
+      color: var(--accent-l); margin-bottom: 32px;
+      animation: fadeInDown 0.8s var(--ease) both;
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px; background: var(--accent);
+      border-radius: 50%; animation: pulse-dot 2s ease infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.5; transform: scale(1.4); }
+    }
+    .hero-content h1 {
+      font-size: clamp(40px, 6.5vw, 78px); line-height: 1.07;
+      margin-bottom: 24px; animation: fadeInUp 0.9s 0.15s var(--ease) both;
+    }
+    .hero-content .subtitle {
+      font-size: clamp(16px, 2vw, 20px); color: var(--text-2);
+      max-width: 560px; margin: 0 auto 40px;
+      animation: fadeInUp 0.9s 0.3s var(--ease) both; min-height: 28px;
+    }
+    .hero-ctas {
+      display: flex; gap: 16px; justify-content: center;
+      flex-wrap: wrap; animation: fadeInUp 0.9s 0.45s var(--ease) both;
+    }
+    .cursor {
+      display: inline-block; width: 2px; height: 1.1em;
+      background: var(--accent); vertical-align: middle;
+      margin-left: 2px; animation: blink 0.9s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    .scroll-hint {
+      position: absolute; bottom: 36px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center;
+      gap: 8px; font-size: 12px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-muted);
+      animation: fadeIn 1s 1.2s both; z-index: 2;
+    }
+    .scroll-hint .mouse {
+      width: 22px; height: 34px;
+      border: 1.5px solid var(--border-h); border-radius: 12px;
+      display: flex; justify-content: center; padding-top: 6px;
+    }
+    .scroll-hint .mouse::before {
+      content: ''; width: 3px; height: 6px;
+      background: var(--accent); border-radius: 3px;
+      animation: scroll-wheel 1.6s ease infinite;
+    }
+    @keyframes scroll-wheel {
+      0%   { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(10px); }
+    }
+
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp   { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn     { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ─── STATS ─── */
+    .stats-section {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-2);
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .stat-item { text-align: center; padding: 36px 24px; position: relative; }
+    .stat-item:not(:last-child)::after {
+      content: ''; position: absolute; right: 0; top: 25%; bottom: 25%;
+      width: 1px; background: var(--border);
+    }
+    .stat-number {
+      font-family: var(--font-title); font-size: 52px; font-weight: 900;
+      line-height: 1; margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--accent-l), var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-label { font-size: 14px; color: var(--text-2); font-weight: 500; }
+
+    /* ─── OFFRES SECTION ─── */
+    .offres-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .offre-card { position: relative; overflow: hidden; }
+    .offre-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(127,119,221,0.06) 0%, transparent 60%);
+      opacity: 0; transition: opacity var(--t) var(--ease);
+    }
+    .offre-card:hover::before { opacity: 1; }
+    .offre-icon {
+      width: 52px; height: 52px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(127,119,221,0.1); border: 1px solid rgba(127,119,221,0.15);
+      border-radius: 12px; margin-bottom: 20px; color: var(--accent-l);
+      transition: background var(--t), border-color var(--t), transform var(--t);
+    }
+    .offre-card:hover .offre-icon {
+      background: rgba(127,119,221,0.18); border-color: var(--accent); transform: scale(1.08);
+    }
+    .offre-icon svg { width: 24px; height: 24px; }
+    .offre-card h3 { font-size: 19px; margin-bottom: 10px; font-family: var(--font-title); }
+    .offre-card p  { font-size: 14px; color: var(--text-2); line-height: 1.8; }
+    .offre-prix {
+      display: inline-block; margin-top: 16px; margin-bottom: 4px;
+      font-size: 22px; font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-l), var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .offre-delai { font-size: 12px; color: var(--text-muted); }
+    .offre-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 18px; font-size: 13px; font-weight: 600;
+      color: var(--accent); transition: gap var(--t);
+    }
+    .offre-card:hover .offre-link { gap: 10px; }
+
+    /* ─── PROCESS ─── */
+    .process-section { background: var(--bg-2); }
+    .process-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; position: relative;
+    }
+    .process-grid::before {
+      content: ''; position: absolute; top: 36px; left: 12.5%; right: 12.5%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-h), var(--accent), var(--border-h), transparent);
+    }
+    .process-step { text-align: center; padding: 0 20px 48px; position: relative; }
+    .process-num {
+      width: 72px; height: 72px; margin: 0 auto 24px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--bg-card); border: 1px solid var(--border-h); border-radius: 50%;
+      font-family: var(--font-title); font-size: 24px; font-weight: 700; color: var(--accent-l);
+      position: relative; z-index: 1;
+    }
+    .process-step h3 { font-size: 17px; margin-bottom: 10px; }
+    .process-step p  { font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials-section { background: var(--bg-2); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .testimonial-card { display: flex; flex-direction: column; }
+    .quote-mark {
+      font-family: var(--font-title); font-size: 64px; line-height: 0.8;
+      color: var(--accent); opacity: 0.4; margin-bottom: 16px;
+    }
+    .testimonial-card p { font-size: 15px; color: var(--text-2); line-height: 1.8; flex: 1; font-style: italic; }
+    .testimonial-author {
+      display: flex; align-items: center; gap: 14px;
+      margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border);
+    }
+    .author-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-d), var(--accent-l));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-title); font-weight: 700; font-size: 16px;
+      color: #fff; flex-shrink: 0;
+    }
+    .author-info .name { font-size: 14px; font-weight: 600; }
+    .author-info .role { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .stars { color: #f59e0b; font-size: 13px; letter-spacing: 2px; margin-bottom: 4px; }
+
+    /* ─── CTA ─── */
+    .cta-section { padding: 110px 0; position: relative; overflow: hidden; }
+    .cta-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(127,119,221,0.08) 0%, transparent 70%);
+    }
+    .cta-inner {
+      position: relative; z-index: 1; text-align: center;
+      max-width: 680px; margin: 0 auto; padding: 0 24px;
+    }
+    .cta-inner h2 { font-size: clamp(32px, 5vw, 56px); margin-bottom: 20px; }
+    .cta-inner p  { font-size: 18px; color: var(--text-2); margin-bottom: 40px; }
+    .cta-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .offres-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2)::after { display: none; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid::before { display: none; }
+    }
+    @media (max-width: 768px) {
+      .offres-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .stat-item::after { display: none !important; }
+    }
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Folio<span>.</span></a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Nos offres</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta">Demander un devis</a>
+    </div>
+    <button class="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" role="navigation" aria-label="Menu mobile">
+  <a href="index.html">Accueil</a>
+  <a href="services.html">Nos offres</a>
+  <a href="about.html">À propos</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" style="color:var(--accent)">Demander un devis →</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero grid-bg" id="hero">
+  <div class="glow-blob hero-blob-1"></div>
+  <div class="glow-blob hero-blob-2"></div>
+  <div class="particles" aria-hidden="true" id="particles"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Création de sites internet — Freelance
+    </div>
+    <h1>
+      Votre site internet,<br>
+      une vitrine qui travaille<br>
+      <span class="gradient-text">pour vous</span>
+    </h1>
+    <p class="subtitle">
+      <span data-typing="Site vitrine professionnel|Boutique e-commerce|Landing page percutante|Site sur mesure"></span><span class="cursor"></span>
+    </p>
+    <div class="hero-ctas">
+      <a href="contact.html" class="btn btn-primary">
+        Demander un devis gratuit
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="services.html" class="btn btn-outline">Voir nos offres</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="mouse"></div>
+    <span>Défiler</span>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<section class="stats-section" aria-label="Chiffres clés">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number" data-counter="80" data-suffix="+">0</div>
+        <div class="stat-label">Sites créés</div>
+      </div>
+      <div class="stat-item reveal delay-1">
+        <div class="stat-number" data-counter="97" data-suffix="%">0</div>
+        <div class="stat-label">Clients satisfaits</div>
+      </div>
+      <div class="stat-item reveal delay-2">
+        <div class="stat-number" data-counter="5" data-suffix=" ans">0</div>
+        <div class="stat-label">D'expérience</div>
+      </div>
+      <div class="stat-item reveal delay-3">
+        <div class="stat-number" data-counter="3" data-suffix=" sem.">0</div>
+        <div class="stat-label">Délai moyen de livraison</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NOS OFFRES ── -->
+<section class="section grid-bg" id="offres">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag reveal">Nos offres</div>
+      <h2 class="reveal delay-1">Le site qu'il vous faut, <span class="gradient-text">au prix juste</span></h2>
+      <p class="reveal delay-2">Du site vitrine simple à la boutique e-commerce complète, je crée des sites qui convertissent vos visiteurs en clients.</p>
+    </div>
+
+    <div class="offres-grid">
+
+      <article class="card offre-card tilt-card reveal">
+        <div class="offre-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <h3>Landing Page</h3>
+        <p>Une page unique et percutante pour présenter votre offre, capter des leads ou promouvoir un événement.</p>
+        <div class="offre-prix">à partir de 490 €</div>
+        <div class="offre-delai">Livraison en 1 semaine</div>
+        <a href="services.html" class="offre-link">Voir le détail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+
+      <article class="card offre-card tilt-card reveal delay-1">
+        <div class="offre-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </div>
+        <h3>Site Vitrine</h3>
+        <p>Votre entreprise en ligne avec un design professionnel, plusieurs pages et un formulaire de contact intégré.</p>
+        <div class="offre-prix">à partir de 990 €</div>
+        <div class="offre-delai">Livraison en 2-3 semaines</div>
+        <a href="services.html" class="offre-link">Voir le détail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+
+      <article class="card offre-card tilt-card reveal delay-2">
+        <div class="offre-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        </div>
+        <h3>Boutique E-commerce</h3>
+        <p>Vendez vos produits en ligne 24h/24 avec une boutique complète : catalogue, panier et paiement sécurisé.</p>
+        <div class="offre-prix">à partir de 1 990 €</div>
+        <div class="offre-delai">Livraison en 3-5 semaines</div>
+        <a href="services.html" class="offre-link">Voir le détail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+
+      <article class="card offre-card tilt-card reveal delay-1">
+        <div class="offre-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        </div>
+        <h3>Refonte de site</h3>
+        <p>Votre site actuel est vieillissant ? Je le modernise avec un design contemporain, responsive et rapide.</p>
+        <div class="offre-prix">à partir de 790 €</div>
+        <div class="offre-delai">Livraison en 2-3 semaines</div>
+        <a href="services.html" class="offre-link">Voir le détail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+
+      <article class="card offre-card tilt-card reveal delay-2">
+        <div class="offre-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        </div>
+        <h3>Site sur mesure</h3>
+        <p>Besoin de fonctionnalités spécifiques ? Je développe des solutions personnalisées adaptées à votre activité.</p>
+        <div class="offre-prix">Sur devis</div>
+        <div class="offre-delai">Délai selon le projet</div>
+        <a href="contact.html" class="offre-link">Me contacter <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+
+      <article class="card offre-card tilt-card reveal delay-3">
+        <div class="offre-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h3>Maintenance & suivi</h3>
+        <p>Je m'occupe de tout après la livraison : mises à jour, sauvegardes, modifications de contenu et support.</p>
+        <div class="offre-prix">à partir de 49 €/mois</div>
+        <div class="offre-delai">Sans engagement</div>
+        <a href="services.html" class="offre-link">Voir le détail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── COMMENT ÇA MARCHE ── -->
+<section class="section process-section grid-bg" aria-label="Comment je travaille">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag reveal">Ma méthode</div>
+      <h2 class="reveal delay-1">De l'idée à la <span class="gradient-text">mise en ligne</span></h2>
+      <p class="reveal delay-2">Un processus simple et transparent, en 4 étapes, pour que vous sachiez toujours où en est votre projet.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-num">01</div>
+        <h3>Brief</h3>
+        <p>On discute de votre projet, vos besoins, votre cible et vos préférences de design. Devis sous 24h.</p>
+      </div>
+      <div class="process-step reveal delay-1">
+        <div class="process-num">02</div>
+        <h3>Design</h3>
+        <p>Je conçois la maquette de votre site. Vous validez le design avant que je commence le développement.</p>
+      </div>
+      <div class="process-step reveal delay-2">
+        <div class="process-num">03</div>
+        <h3>Développement</h3>
+        <p>Je construis votre site avec soin : rapide, responsive et optimisé pour les moteurs de recherche.</p>
+      </div>
+      <div class="process-step reveal delay-3">
+        <div class="process-num">04</div>
+        <h3>Livraison</h3>
+        <p>Mise en ligne, formation à l'utilisation et remise de toutes les clés. Votre site est prêt !</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="section testimonials-section grid-bg" id="testimonials" aria-label="Avis clients">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag reveal">Avis clients</div>
+      <h2 class="reveal delay-1">Ce qu'ils disent de <span class="gradient-text">leur site</span></h2>
+      <p class="reveal delay-2">Des professionnels et des particuliers qui ont fait confiance à Folio pour leur présence en ligne.</p>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <div class="card testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <div class="quote-mark">"</div>
+        <p>Mon restaurant affiche complet le week-end depuis que j'ai mon site. Les gens réservent directement en ligne, je passe moins de temps au téléphone et j'ai plus de clients. Un investissement rentabilisé en un mois.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">ML</div>
+          <div class="author-info">
+            <div class="name">Marc Lefebvre</div>
+            <div class="role">Restaurateur, Le Bistrot Parisien</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card testimonial-card reveal delay-1">
+        <div class="stars">★★★★★</div>
+        <div class="quote-mark">"</div>
+        <p>Je reçois des demandes de devis directement depuis mon site, sans passer par des plateformes qui prennent des commissions. En 3 semaines, j'avais déjà récupéré le coût du site. Je recommande à tous les artisans.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">CB</div>
+          <div class="author-info">
+            <div class="name">Camille Bernard</div>
+            <div class="role">Plombier indépendant</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card testimonial-card reveal delay-2">
+        <div class="stars">★★★★★</div>
+        <div class="quote-mark">"</div>
+        <p>Ma boutique en ligne a généré plus de 15 000 € de chiffre d'affaires le premier mois. Le site est beau, facile à gérer et mes clientes adorent l'expérience d'achat. Je ne regrette absolument pas.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SA</div>
+          <div class="author-info">
+            <div class="name">Sophie Arnaud</div>
+            <div class="role">Créatrice, Atelier Lumière</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section grid-bg">
+  <div class="cta-bg"></div>
+  <div class="cta-inner">
+    <div class="section-tag reveal" style="justify-content:center">Prêt à vous lancer ?</div>
+    <h2 class="reveal delay-1">Votre site internet, <span class="gradient-text">livré en 3 semaines</span></h2>
+    <p class="reveal delay-2">Parlez-moi de votre projet. Je vous envoie un devis gratuit et sans engagement sous 24 heures.</p>
+    <div class="cta-ctas reveal delay-3">
+      <a href="contact.html" class="btn btn-primary">
+        Demander un devis gratuit
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="services.html" class="btn btn-outline">Voir toutes les offres</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="f-logo">Folio<span>.</span></div>
+        <p>Création de sites internet sur mesure pour les entreprises et les particuliers. Sites vitrines, boutiques e-commerce et landing pages.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Nos offres</h4>
+        <ul>
+          <li><a href="services.html">Landing Page</a></li>
+          <li><a href="services.html">Site Vitrine</a></li>
+          <li><a href="services.html">E-commerce</a></li>
+          <li><a href="services.html">Refonte de site</a></li>
+          <li><a href="services.html">Maintenance</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>À propos</h4>
+        <ul>
+          <li><a href="about.html">Qui suis-je ?</a></li>
+          <li><a href="about.html">Ma méthode</a></li>
+          <li><a href="about.html">Mes outils</a></li>
+          <li><a href="about.html">Pourquoi moi ?</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html">Demander un devis</a></li>
+          <li><a href="contact.html">Me contacter</a></li>
+          <li><a href="#">+33 6 00 00 00 00</a></li>
+          <li><a href="#">contact@folio-web.fr</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Folio. Tous droits réservés.</span>
+      <span><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  /* Générer les particules CSS */
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('span');
+    p.className = 'particle';
+    const size = Math.random() * 3 + 1;
+    p.style.cssText = `
+      width: ${size}px; height: ${size}px;
+      left: ${Math.random() * 100}%;
+      animation-duration: ${Math.random() * 12 + 8}s;
+      animation-delay: ${Math.random() * 8}s;
+    `;
+    container.appendChild(p);
+  }
+</script>
+</body>
+</html>
