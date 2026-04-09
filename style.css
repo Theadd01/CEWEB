@@ -142,7 +142,7 @@ nav.scrolled {
   letter-spacing: -0.5px;
 }
 .nav-logo span { color: var(--accent); }
-.nav-logo-img { height: 200px; width: auto; display: block; }
+.nav-logo-img { width: 150px; height: 45px; display: block; object-fit: contain; }
 
 .nav-links {
   display: flex;
