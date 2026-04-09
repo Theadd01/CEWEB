@@ -5,6 +5,66 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ── BARRE DE PROGRESSION AU SCROLL ── */
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress-bar';
+  document.body.prepend(progressBar);
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (scrolled / total * 100) + '%';
+  }, { passive: true });
+
+  /* ── CURSOR GLOW (desktop) ── */
+  const glow = document.createElement('div');
+  glow.className = 'cursor-glow';
+  document.body.appendChild(glow);
+  document.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top  = e.clientY + 'px';
+  });
+
+  /* ── RIPPLE SUR LES BOUTONS ── */
+  document.querySelectorAll('.btn, .nav-cta').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      const size = Math.max(rect.width, rect.height) * 2;
+      ripple.style.cssText = `
+        width: ${size}px; height: ${size}px;
+        left: ${e.clientX - rect.left - size / 2}px;
+        top:  ${e.clientY - rect.top  - size / 2}px;
+      `;
+      this.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  });
+
+  /* ── ÉTINCELLES AU CLIC ── */
+  const sparkColors = ['#7F77DD', '#a89ef5', '#c4b9ff', '#5b54b8', '#ffffff'];
+  document.addEventListener('click', e => {
+    // Ne pas créer de sparks sur les inputs/textareas
+    if (['INPUT','TEXTAREA','SELECT','BUTTON'].includes(e.target.tagName)) return;
+    for (let i = 0; i < 8; i++) {
+      const spark = document.createElement('span');
+      spark.className = 'click-spark';
+      const angle  = (i / 8) * 2 * Math.PI + Math.random() * 0.5;
+      const dist   = 40 + Math.random() * 40;
+      const size   = 4 + Math.random() * 4;
+      spark.style.cssText = `
+        left: ${e.clientX}px; top: ${e.clientY}px;
+        width: ${size}px; height: ${size}px;
+        background: ${sparkColors[Math.floor(Math.random() * sparkColors.length)]};
+        --tx: ${Math.cos(angle) * dist}px;
+        --ty: ${Math.sin(angle) * dist}px;
+        animation-duration: ${0.4 + Math.random() * 0.3}s;
+      `;
+      document.body.appendChild(spark);
+      spark.addEventListener('animationend', () => spark.remove());
+    }
+  });
+
   /* ── NAVIGATION SCROLL STATE ── */
   const nav = document.querySelector('nav');
   const onScroll = () => {
