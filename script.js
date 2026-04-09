@@ -110,38 +110,42 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.innerHTML = '<span>Envoi en cours…</span>';
       btn.disabled = true;
 
-      try {
-        const response = await fetch('https://formspree.io/f/xgopbgzl', {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
+      // Paramètres envoyés au template EmailJS
+      const templateParams = {
+        prenom:    form.querySelector('[name="prenom"]')?.value   || '',
+        email:     form.querySelector('[name="email"]')?.value    || '',
+        message:   form.querySelector('[name="message"]')?.value  || '',
+        nom:       form.querySelector('[name="nom"]')?.value      || '',
+        telephone: form.querySelector('[name="telephone"]')?.value || '',
+        activite:  form.querySelector('[name="activite"]')?.value  || '',
+        type_site: form.querySelector('[name="type_site"]')?.value || '',
+        budget:    form.querySelector('[name="budget"]')?.value    || '',
+      };
 
-        if (response.ok) {
-          // Succès
-          form.innerHTML = `
-            <div class="form-success">
-              <div class="success-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <path d="M8 12l3 3 5-5"/>
-                </svg>
-              </div>
-              <h3>Demande envoyée !</h3>
-              <p>Merci ! Je vous envoie votre devis sous 24 heures.</p>
+      try {
+        await emailjs.send('Site internet', 'template_1ma04fj', templateParams);
+
+        // Succès — message visible sur la page
+        form.innerHTML = `
+          <div class="form-success">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 12l3 3 5-5"/>
+              </svg>
             </div>
-          `;
-        } else {
-          // Erreur serveur
-          btn.innerHTML = 'Réessayer';
-          btn.disabled = false;
-          alert("Une erreur est survenue. Veuillez réessayer ou me contacter directement par email.");
-        }
+            <h3>Demande envoyée, ${templateParams.prenom} !</h3>
+            <p>Un email de confirmation vient de vous être envoyé à <strong>${templateParams.email}</strong>.<br>Je vous réponds avec votre devis sous 24 heures.</p>
+          </div>
+        `;
       } catch (err) {
-        // Erreur réseau
+        // Erreur — bouton réactivé + message d'erreur
         btn.innerHTML = 'Réessayer';
         btn.disabled = false;
-        alert("Impossible d'envoyer le message. Vérifiez votre connexion internet.");
+        const errBox = document.createElement('p');
+        errBox.style.cssText = 'color:#e05252;font-size:14px;margin-top:12px;text-align:center;';
+        errBox.textContent = "L'envoi a échoué. Vérifiez votre connexion ou contactez-moi directement par email.";
+        btn.parentElement.appendChild(errBox);
       }
     });
   }
