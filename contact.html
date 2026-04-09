@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demander un devis — Folio Création de sites internet</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Demandez un devis gratuit pour votre site internet. Réponse sous 24h. Landing page, site vitrine, boutique e-commerce ou site sur mesure.">
+  <meta name="keywords" content="devis site internet, contact freelance web, demande devis création site">
+  <meta name="author" content="Folio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://folio-web.fr/contact.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://folio-web.fr/contact.html">
+  <meta property="og:title"       content="Demander un devis — Folio">
+  <meta property="og:description" content="Devis gratuit et personnalisé pour votre site internet. Réponse sous 24h.">
+  <meta property="og:image"       content="https://folio-web.fr/og-image.jpg">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Folio",
+    "mainEntity": {
+      "@type": "ProfessionalService",
+      "name": "Folio",
+      "telephone": "+33-6-00-00-00-00",
+      "email": "contact@folio-web.fr"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── PAGE HERO ── */
+    .page-hero {
+      min-height: 44vh; display: flex; align-items: center;
+      padding-top: var(--nav-h); position: relative; overflow: hidden;
+    }
+    .page-hero-blob {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(127,119,221,0.14) 0%, transparent 70%);
+      top: -100px; right: -100px;
+    }
+    .page-hero-content { max-width: 660px; }
+    .page-hero-content h1 { font-size: clamp(34px, 5vw, 62px); margin-bottom: 20px; }
+    .page-hero-content p  { font-size: 18px; color: var(--text-2); line-height: 1.8; }
+
+    /* ── CONTACT LAYOUT ── */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1.6fr;
+      gap: 64px; align-items: start;
+    }
+
+    /* ── INFO SIDE ── */
+    .contact-info { position: sticky; top: calc(var(--nav-h) + 32px); }
+    .contact-info h2 { font-size: 26px; margin-bottom: 12px; }
+    .contact-info > p { font-size: 15px; color: var(--text-2); line-height: 1.85; margin-bottom: 36px; }
+
+    .contact-items { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 18px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 12px;
+      transition: border-color var(--t), transform var(--t);
+    }
+    .contact-item:hover { border-color: var(--border-h); transform: translateX(4px); }
+    .contact-item-icon {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(127,119,221,0.1);
+      border: 1px solid rgba(127,119,221,0.15);
+      border-radius: 10px; color: var(--accent-l); flex-shrink: 0;
+    }
+    .contact-item-icon svg { width: 18px; height: 18px; }
+    .contact-item-text .label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 3px; }
+    .contact-item-text .value { font-size: 14px; font-weight: 500; }
+    .contact-item-text .sub   { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    /* Mini garanties */
+    .mini-garanties { display: flex; flex-direction: column; gap: 10px; }
+    .mini-garantie {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; color: var(--text-2);
+    }
+    .mini-garantie .check {
+      width: 20px; height: 20px; flex-shrink: 0;
+      background: rgba(127,119,221,0.1);
+      border: 1px solid rgba(127,119,221,0.2);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+    }
+    .mini-garantie .check svg { width: 11px; height: 11px; }
+
+    /* ── FORMULAIRE ── */
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+    .field label { font-size: 13px; font-weight: 500; color: var(--text-2); }
+    .field label span { color: var(--accent); margin-left: 2px; }
+    .field input,
+    .field textarea,
+    .field select {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 13px 16px;
+      color: var(--text); font-size: 15px;
+      transition: border-color var(--t), box-shadow var(--t);
+      outline: none; width: 100%;
+    }
+    .field input::placeholder, .field textarea::placeholder { color: var(--text-muted); }
+    .field select option { background: var(--bg-card); }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      border-color: var(--accent); box-shadow: 0 0 0 3px rgba(127,119,221,0.12);
+    }
+    .field.error input, .field.error textarea, .field.error select {
+      border-color: #e05252; box-shadow: 0 0 0 3px rgba(224,82,82,0.1);
+    }
+    .field.success input, .field.success textarea, .field.success select { border-color: #4ade80; }
+    .field-error { font-size: 12px; color: #e05252; min-height: 16px; }
+    .field textarea { resize: vertical; min-height: 120px; }
+
+    /* Checkbox */
+    .field-check {
+      display: flex; align-items: flex-start; gap: 12px;
+      cursor: pointer; font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+    .field-check input[type="checkbox"] {
+      width: 18px; height: 18px;
+      border: 1.5px solid var(--border-h); border-radius: 5px;
+      cursor: pointer; flex-shrink: 0; margin-top: 1px;
+      accent-color: var(--accent);
+    }
+    .field-check a { color: var(--accent); text-decoration: underline; }
+    .form-submit { margin-top: 10px; }
+    .form-submit .btn { width: 100%; justify-content: center; padding: 17px; font-size: 16px; }
+
+    /* Success */
+    .form-success { text-align: center; padding: 64px 40px; }
+    .success-icon {
+      width: 80px; height: 80px; margin: 0 auto 24px;
+      background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.3);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #4ade80;
+    }
+    .success-icon svg { width: 36px; height: 36px; }
+    .form-success h3 { font-size: 24px; margin-bottom: 12px; }
+    .form-success p  { font-size: 15px; color: var(--text-2); }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--bg-2); }
+    .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .faq-item {
+      padding: 28px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 12px;
+      transition: border-color var(--t);
+    }
+    .faq-item:hover { border-color: var(--border-h); }
+    .faq-item h4 { font-size: 15px; margin-bottom: 10px; font-family: var(--font-body); font-weight: 600; }
+    .faq-item p  { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .contact-info { position: static; }
+      .faq-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) { .form-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Folio<span>.</span></a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Nos offres</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta">Demander un devis</a>
+    </div>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" role="navigation" aria-label="Menu mobile">
+  <a href="index.html">Accueil</a>
+  <a href="services.html">Nos offres</a>
+  <a href="about.html">À propos</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" style="color:var(--accent)">Demander un devis →</a>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero grid-bg section" style="padding-bottom:0;">
+  <div class="glow-blob page-hero-blob"></div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="section-tag reveal">Devis gratuit</div>
+      <h1 class="reveal delay-1">Parlons de votre <span class="gradient-text">projet</span></h1>
+      <p class="reveal delay-2">Décrivez-moi ce que vous avez en tête. Je vous envoie un devis détaillé et personnalisé sous 24 heures — sans engagement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Infos -->
+      <div class="contact-info reveal from-left">
+        <h2>Restons en contact</h2>
+        <p>Une question avant de remplir le formulaire ? Contactez-moi directement, je réponds rapidement.</p>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div class="contact-item-text">
+              <div class="label">Téléphone</div>
+              <div class="value">+33 6 00 00 00 00</div>
+              <div class="sub">Lun–Ven, 9h–18h</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div class="contact-item-text">
+              <div class="label">Email</div>
+              <div class="value">contact@folio-web.fr</div>
+              <div class="sub">Réponse sous 24h garantie</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div class="contact-item-text">
+              <div class="label">Disponibilité</div>
+              <div class="value">Lun – Ven : 9h – 18h</div>
+              <div class="sub">Projets acceptés toute l'année</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mini-garanties">
+          <div class="mini-garantie">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>
+            Devis gratuit et sans engagement
+          </div>
+          <div class="mini-garantie">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>
+            Réponse sous 24 heures ouvrées
+          </div>
+          <div class="mini-garantie">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>
+            Tarif fixe, aucune mauvaise surprise
+          </div>
+          <div class="mini-garantie">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>
+            Interlocuteur unique de A à Z
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulaire -->
+      <div class="reveal delay-2">
+        <div class="card" style="padding:44px;">
+          <h2 style="font-size:22px;margin-bottom:6px;">Demande de devis gratuit</h2>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:32px;">Les champs <span style="color:var(--accent)">*</span> sont requis.</p>
+
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="prenom">Prénom <span>*</span></label>
+                <input type="text" id="prenom" name="prenom" placeholder="Jean" required autocomplete="given-name">
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="nom">Nom <span>*</span></label>
+                <input type="text" id="nom" name="nom" placeholder="Dupont" required autocomplete="family-name">
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email <span>*</span></label>
+              <input type="email" id="email" name="email" placeholder="jean@exemple.fr" required autocomplete="email">
+              <span class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="+33 6 12 34 56 78" autocomplete="tel">
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="activite">Votre activité</label>
+                <input type="text" id="activite" name="activite" placeholder="Restaurant, artisan, coach…" autocomplete="organization">
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="type_site">Type de site souhaité <span>*</span></label>
+              <select id="type_site" name="type_site" required>
+                <option value="" disabled selected>Choisissez une offre…</option>
+                <option value="landing">Landing Page (à partir de 490 €)</option>
+                <option value="vitrine">Site Vitrine (à partir de 990 €)</option>
+                <option value="ecommerce">Boutique E-commerce (à partir de 1 990 €)</option>
+                <option value="refonte">Refonte de site existant (à partir de 790 €)</option>
+                <option value="mesure">Site sur mesure (sur devis)</option>
+                <option value="inconnu">Je ne sais pas encore</option>
+              </select>
+              <span class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div class="field">
+              <label for="budget">Budget envisagé</label>
+              <select id="budget" name="budget">
+                <option value="" disabled selected>Votre budget approximatif…</option>
+                <option value="moins500">Moins de 500 €</option>
+                <option value="500-1000">500 € – 1 000 €</option>
+                <option value="1000-2000">1 000 € – 2 000 €</option>
+                <option value="2000-5000">2 000 € – 5 000 €</option>
+                <option value="plus5000">Plus de 5 000 €</option>
+                <option value="inconnu">Je ne sais pas</option>
+              </select>
+              <span class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div class="field">
+              <label for="message">Décrivez votre projet <span>*</span></label>
+              <textarea id="message" name="message" placeholder="Dites-moi en quelques lignes ce que vous faites, ce que vous voulez que le site accomplisse et si vous avez des exemples de sites que vous aimez…" required></textarea>
+              <span class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div class="field">
+              <label class="field-check">
+                <input type="checkbox" name="rgpd" required>
+                J'accepte que mes données soient utilisées pour traiter ma demande de devis. <a href="#">Politique de confidentialité</a>.
+              </label>
+              <span class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary">
+                Envoyer ma demande de devis
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section faq-section grid-bg">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag reveal">FAQ</div>
+      <h2 class="reveal delay-1">Questions <span class="gradient-text">fréquentes</span></h2>
+      <p class="reveal delay-2">Tout ce que vous devriez savoir avant de vous lancer.</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <h4>Combien coûte un site internet ?</h4>
+        <p>Selon le type de site : une landing page démarre à 490 €, un site vitrine à 990 € et une boutique e-commerce à 1 990 €. Le devis est gratuit et sans engagement — je vous donne un prix fixe avant de démarrer.</p>
+      </div>
+      <div class="faq-item reveal delay-1">
+        <h4>Combien de temps pour créer mon site ?</h4>
+        <p>Une landing page est livrée en 1 semaine, un site vitrine en 2-3 semaines, une boutique e-commerce en 3-5 semaines. Les délais sont respectés, c'est mon engagement.</p>
+      </div>
+      <div class="faq-item reveal delay-2">
+        <h4>Est-ce que je pourrai modifier mon site seul ?</h4>
+        <p>Oui. Je vous livre un site avec une interface d'administration simple que vous pouvez utiliser sans aucune compétence technique. Et si vous préférez, je propose une offre maintenance pour que je gère tout à votre place.</p>
+      </div>
+      <div class="faq-item reveal delay-3">
+        <h4>Est-ce que vous vous occupez du nom de domaine et de l'hébergement ?</h4>
+        <p>Oui, je peux m'en occuper. C'est une option supplémentaire à partir de 15 €/mois tout compris. Vous pouvez aussi fournir votre propre hébergement si vous en avez déjà un.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h4>Comment se passe le paiement ?</h4>
+        <p>Un acompte de 30 à 50 % au démarrage du projet, le solde à la livraison. Je propose le paiement en plusieurs fois sans frais selon les offres. Virement bancaire ou PayPal.</p>
+      </div>
+      <div class="faq-item reveal delay-1">
+        <h4>Est-ce que vous intervenez dans toute la France ?</h4>
+        <p>Oui, je travaille avec des clients partout en France (et en Europe) en 100 % à distance via visio, email et téléphone. Pas besoin d'être à Paris pour travailler avec moi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="f-logo">Folio<span>.</span></div>
+        <p>Création de sites internet sur mesure pour les entreprises et les particuliers. Sites vitrines, boutiques e-commerce et landing pages.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Nos offres</h4>
+        <ul>
+          <li><a href="services.html">Landing Page</a></li>
+          <li><a href="services.html">Site Vitrine</a></li>
+          <li><a href="services.html">E-commerce</a></li>
+          <li><a href="services.html">Refonte</a></li>
+          <li><a href="services.html">Maintenance</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>À propos</h4>
+        <ul>
+          <li><a href="about.html">Qui suis-je ?</a></li>
+          <li><a href="about.html">Ma méthode</a></li>
+          <li><a href="about.html">Mes outils</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html">Demander un devis</a></li>
+          <li><a href="contact.html">Me contacter</a></li>
+          <li><a href="#">+33 6 00 00 00 00</a></li>
+          <li><a href="#">contact@folio-web.fr</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Folio. Tous droits réservés.</span>
+      <span><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

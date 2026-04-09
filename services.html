@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos offres — Folio Création de sites internet</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Découvrez nos offres de création de sites internet : landing page, site vitrine, boutique e-commerce, refonte et maintenance. Tarifs clairs et transparents.">
+  <meta name="keywords" content="offres site internet, tarif création site, landing page prix, site vitrine prix, e-commerce prix">
+  <meta name="author" content="Folio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://folio-web.fr/services.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://folio-web.fr/services.html">
+  <meta property="og:title"       content="Nos offres — Folio Création de sites internet">
+  <meta property="og:description" content="Tous nos forfaits de création de sites internet avec tarifs clairs. Landing page, vitrine, e-commerce.">
+  <meta property="og:image"       content="https://folio-web.fr/og-image.jpg">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── PAGE HERO ── */
+    .page-hero {
+      min-height: 50vh; display: flex; align-items: center;
+      padding-top: var(--nav-h); position: relative; overflow: hidden;
+    }
+    .page-hero-blob {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(127,119,221,0.13) 0%, transparent 70%);
+      top: -200px; right: -150px;
+    }
+    .page-hero-content { max-width: 680px; }
+    .page-hero-content h1 { font-size: clamp(36px, 5vw, 66px); margin-bottom: 22px; }
+    .page-hero-content p  { font-size: 18px; color: var(--text-2); line-height: 1.8; }
+
+    /* ── OFFRES CARDS ── */
+    .offres-list { display: flex; flex-direction: column; gap: 24px; }
+
+    .offre-detail {
+      display: grid; grid-template-columns: 280px 1fr; gap: 0;
+      border-radius: var(--r); overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      transition: border-color var(--t), box-shadow var(--t);
+    }
+    .offre-detail:hover {
+      border-color: var(--border-h);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    }
+
+    .offre-left {
+      padding: 40px 36px;
+      background: linear-gradient(160deg, rgba(127,119,221,0.07) 0%, transparent 80%);
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .offre-left-top {}
+    .offre-detail-icon {
+      width: 56px; height: 56px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(127,119,221,0.1);
+      border: 1px solid rgba(127,119,221,0.2);
+      border-radius: 14px; color: var(--accent-l); margin-bottom: 20px;
+    }
+    .offre-detail-icon svg { width: 26px; height: 26px; }
+    .offre-left h2 { font-size: 22px; margin-bottom: 12px; }
+    .offre-left .desc { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
+
+    .offre-left-bottom { margin-top: 28px; }
+    .offre-price {
+      font-family: var(--font-title); font-size: 36px; font-weight: 900;
+      background: linear-gradient(135deg, var(--accent-l), var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1;
+    }
+    .offre-price-sub { font-size: 13px; color: var(--text-muted); margin-top: 5px; }
+    .offre-delai-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 14px; padding: 5px 12px;
+      background: rgba(127,119,221,0.1);
+      border: 1px solid rgba(127,119,221,0.15);
+      border-radius: 100px; font-size: 12px; color: var(--accent-l);
+    }
+    .offre-delai-badge svg { width: 12px; height: 12px; }
+
+    .offre-right { padding: 40px; }
+    .offre-right h3 { font-size: 15px; font-weight: 600; color: var(--text-2); margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.1em; font-family: var(--font-body); }
+    .offre-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+    .offre-feature {
+      display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text);
+    }
+    .offre-feature .check {
+      width: 20px; height: 20px; flex-shrink: 0;
+      background: rgba(127,119,221,0.12);
+      border: 1px solid rgba(127,119,221,0.2);
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+    }
+    .offre-feature .check svg { width: 11px; height: 11px; }
+
+    .offre-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ── OPTIONS SECTION ── */
+    .options-section { background: var(--bg-2); }
+    .options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .option-card { padding: 28px; }
+    .option-card h3 { font-size: 16px; margin-bottom: 8px; font-family: var(--font-body); font-weight: 600; }
+    .option-card p  { font-size: 13px; color: var(--text-muted); line-height: 1.75; margin-bottom: 12px; }
+    .option-price { font-size: 18px; font-weight: 700; color: var(--accent-l); }
+
+    /* ── GARANTIES ── */
+    .garanties-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .garantie-item { text-align: center; padding: 36px 20px; }
+    .garantie-icon {
+      width: 56px; height: 56px; margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(127,119,221,0.1);
+      border: 1px solid rgba(127,119,221,0.15);
+      border-radius: 50%; color: var(--accent-l);
+    }
+    .garantie-icon svg { width: 24px; height: 24px; }
+    .garantie-item h4 { font-size: 15px; margin-bottom: 8px; font-family: var(--font-body); font-weight: 600; }
+    .garantie-item p  { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .offre-detail { grid-template-columns: 1fr; }
+      .offre-left { border-right: none; border-bottom: 1px solid var(--border); }
+      .options-grid { grid-template-columns: repeat(2, 1fr); }
+      .garanties-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .options-grid { grid-template-columns: 1fr; }
+      .garanties-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Folio<span>.</span></a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Nos offres</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta">Demander un devis</a>
+    </div>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" role="navigation" aria-label="Menu mobile">
+  <a href="index.html">Accueil</a>
+  <a href="services.html">Nos offres</a>
+  <a href="about.html">À propos</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" style="color:var(--accent)">Demander un devis →</a>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero grid-bg section">
+  <div class="glow-blob page-hero-blob"></div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="section-tag reveal">Nos offres</div>
+      <h1 class="reveal delay-1">Des sites internet <span class="gradient-text">clé en main</span></h1>
+      <p class="reveal delay-2">Des tarifs clairs, des délais respectés et un résultat dont vous serez fier. Choisissez l'offre qui correspond à votre projet — ou demandez un devis sur mesure.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── OFFRES DÉTAILLÉES ── -->
+<section class="section">
+  <div class="container">
+    <div class="offres-list">
+
+      <!-- LANDING PAGE -->
+      <div class="offre-detail reveal">
+        <div class="offre-left">
+          <div class="offre-left-top">
+            <div class="offre-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <h2>Landing Page</h2>
+            <p class="desc">Une page unique, claire et percutante. Idéale pour une offre spécifique, un événement ou capter des prospects.</p>
+          </div>
+          <div class="offre-left-bottom">
+            <div class="offre-price">à partir de 490 €</div>
+            <div class="offre-price-sub">Paiement en 2 fois sans frais</div>
+            <div class="offre-delai-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Livraison en 1 semaine
+            </div>
+          </div>
+        </div>
+        <div class="offre-right">
+          <h3>Ce qui est inclus</h3>
+          <div class="offre-features">
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Design personnalisé à vos couleurs</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>1 page scrollable complète (hero, offre, CTA, contact)</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Responsive mobile / tablette / desktop</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Formulaire de contact fonctionnel</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Optimisation SEO de base (balises, vitesse)</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Intégration Google Analytics</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>2 allers-retours de correction inclus</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Mise en ligne sur votre hébergement</div>
+          </div>
+          <div class="offre-cta">
+            <a href="contact.html" class="btn btn-primary">Je veux une landing page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SITE VITRINE -->
+      <div class="offre-detail reveal">
+        <div class="offre-left">
+          <div class="offre-left-top">
+            <div class="offre-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            </div>
+            <h2>Site Vitrine</h2>
+            <p class="desc">Votre entreprise en ligne avec un site professionnel multi-pages. La solution idéale pour les TPE, PME, artisans et indépendants.</p>
+          </div>
+          <div class="offre-left-bottom">
+            <div class="offre-price">à partir de 990 €</div>
+            <div class="offre-price-sub">Paiement en 3 fois sans frais</div>
+            <div class="offre-delai-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Livraison en 2-3 semaines
+            </div>
+          </div>
+        </div>
+        <div class="offre-right">
+          <h3>Ce qui est inclus</h3>
+          <div class="offre-features">
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Design sur mesure, unique et professionnel</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Jusqu'à 6 pages (Accueil, Services, À propos, Contact…)</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Responsive mobile / tablette / desktop</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Formulaire de contact et carte Google Maps</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>SEO on-page complet (structure, mots-clés, vitesse)</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Intégration Google Analytics + Search Console</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Interface d'administration pour modifier le contenu</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>3 allers-retours de correction inclus</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Formation à l'utilisation (1h)</div>
+          </div>
+          <div class="offre-cta">
+            <a href="contact.html" class="btn btn-primary">Je veux un site vitrine <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-COMMERCE -->
+      <div class="offre-detail reveal">
+        <div class="offre-left">
+          <div class="offre-left-top">
+            <div class="offre-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            </div>
+            <h2>Boutique E-commerce</h2>
+            <p class="desc">Vendez vos produits ou services en ligne 24h/24 avec une boutique complète, sécurisée et facile à gérer.</p>
+          </div>
+          <div class="offre-left-bottom">
+            <div class="offre-price">à partir de 1 990 €</div>
+            <div class="offre-price-sub">Paiement en 4 fois sans frais</div>
+            <div class="offre-delai-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Livraison en 3-5 semaines
+            </div>
+          </div>
+        </div>
+        <div class="offre-right">
+          <h3>Ce qui est inclus</h3>
+          <div class="offre-features">
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Design boutique sur mesure et attractif</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Catalogue produits (jusqu'à 50 produits à la création)</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Panier d'achat et tunnel de commande optimisé</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Paiement sécurisé (CB, PayPal, Stripe…)</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Gestion des stocks, commandes, livraisons</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Emails automatiques (confirmation, expédition)</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>SEO e-commerce (fiches produits optimisées)</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Responsive mobile (achat depuis smartphone)</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Formation complète à la gestion de la boutique (2h)</div>
+          </div>
+          <div class="offre-cta">
+            <a href="contact.html" class="btn btn-primary">Je veux une boutique <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- REFONTE -->
+      <div class="offre-detail reveal">
+        <div class="offre-left">
+          <div class="offre-left-top">
+            <div class="offre-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            </div>
+            <h2>Refonte de site</h2>
+            <p class="desc">Votre site est vieux, lent ou ne convertit pas ? Je le modernise intégralement tout en conservant votre contenu existant.</p>
+          </div>
+          <div class="offre-left-bottom">
+            <div class="offre-price">à partir de 790 €</div>
+            <div class="offre-price-sub">Selon l'ampleur du projet</div>
+            <div class="offre-delai-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Livraison en 2-3 semaines
+            </div>
+          </div>
+        </div>
+        <div class="offre-right">
+          <h3>Ce qui est inclus</h3>
+          <div class="offre-features">
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Audit de l'existant (design, SEO, performance)</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Nouveau design moderne et professionnel</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Migration et conservation de votre contenu</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Optimisation de la vitesse (Core Web Vitals)</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Adaptation mobile (responsive design)</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Remise à niveau SEO complète</div>
+            <div class="offre-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>Conservation de votre nom de domaine et emails</div>
+          </div>
+          <div class="offre-cta">
+            <a href="contact.html" class="btn btn-primary">Rénover mon site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── OPTIONS & ADD-ONS ── -->
+<section class="section options-section" style="background:var(--bg-2);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag reveal">Options</div>
+      <h2 class="reveal delay-1">Des services <span class="gradient-text">complémentaires</span></h2>
+      <p class="reveal delay-2">Ajoutez ces options à n'importe quelle offre pour aller encore plus loin.</p>
+    </div>
+    <div class="options-grid">
+      <div class="card option-card reveal">
+        <h3>Logo & identité visuelle</h3>
+        <p>Création de votre logo professionnel, charte graphique, couleurs et typographies cohérentes.</p>
+        <div class="option-price">à partir de 290 €</div>
+      </div>
+      <div class="card option-card reveal delay-1">
+        <h3>Rédaction des textes</h3>
+        <p>Je rédige les textes de votre site optimisés pour le SEO et conçus pour convaincre vos visiteurs.</p>
+        <div class="option-price">à partir de 190 €</div>
+      </div>
+      <div class="card option-card reveal delay-2">
+        <h3>Référencement SEO mensuel</h3>
+        <p>Amélioration continue de votre positionnement sur Google : contenus, backlinks, suivi des positions.</p>
+        <div class="option-price">à partir de 149 €/mois</div>
+      </div>
+      <div class="card option-card reveal">
+        <h3>Maintenance mensuelle</h3>
+        <p>Mises à jour, sauvegardes quotidiennes, corrections et modifications de contenu incluses.</p>
+        <div class="option-price">à partir de 49 €/mois</div>
+      </div>
+      <div class="card option-card reveal delay-1">
+        <h3>Hébergement & domaine</h3>
+        <p>Je m'occupe de l'achat et de la configuration de votre nom de domaine et de votre hébergement.</p>
+        <div class="option-price">à partir de 15 €/mois</div>
+      </div>
+      <div class="card option-card reveal delay-2">
+        <h3>Formation personnalisée</h3>
+        <p>Session de formation pour apprendre à gérer votre site en toute autonomie, en visio ou en présentiel.</p>
+        <div class="option-price">90 €/heure</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GARANTIES ── -->
+<section class="section grid-bg">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag reveal">Mes engagements</div>
+      <h2 class="reveal delay-1">Ce que je vous <span class="gradient-text">garantis</span></h2>
+    </div>
+    <div class="garanties-grid">
+      <div class="card garantie-item reveal">
+        <div class="garantie-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+        <h4>Devis gratuit</h4>
+        <p>Je vous envoie un devis détaillé et sans engagement sous 24 heures ouvrées.</p>
+      </div>
+      <div class="card garantie-item reveal delay-1">
+        <div class="garantie-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <h4>Délais respectés</h4>
+        <p>Je m'engage sur une date de livraison et je la respecte. Toujours.</p>
+      </div>
+      <div class="card garantie-item reveal delay-2">
+        <div class="garantie-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
+        <h4>Satisfaction garantie</h4>
+        <p>Vous validez le design avant que je code. Vous êtes satisfait ou on recommence.</p>
+      </div>
+      <div class="card garantie-item reveal delay-3">
+        <div class="garantie-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg></div>
+        <h4>Support réactif</h4>
+        <p>Une question après la livraison ? Je réponds sous 24h, toujours disponible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="section" style="padding:90px 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%, rgba(127,119,221,0.08) 0%, transparent 70%);"></div>
+  <div style="position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto;padding:0 24px;">
+    <div class="section-tag reveal" style="justify-content:center">Prêt à démarrer ?</div>
+    <h2 class="reveal delay-1" style="font-size:clamp(30px,4.5vw,52px);margin-bottom:20px;">Parlez-moi de votre <span class="gradient-text">projet</span></h2>
+    <p class="reveal delay-2" style="font-size:17px;color:var(--text-2);margin-bottom:40px;">Devis gratuit et personnalisé sous 24h. Sans engagement.</p>
+    <div class="reveal delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary">Demander un devis gratuit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="about.html" class="btn btn-outline">Qui suis-je ?</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="f-logo">Folio<span>.</span></div>
+        <p>Création de sites internet sur mesure pour les entreprises et les particuliers. Sites vitrines, boutiques e-commerce et landing pages.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Nos offres</h4>
+        <ul>
+          <li><a href="services.html">Landing Page</a></li>
+          <li><a href="services.html">Site Vitrine</a></li>
+          <li><a href="services.html">E-commerce</a></li>
+          <li><a href="services.html">Refonte de site</a></li>
+          <li><a href="services.html">Maintenance</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>À propos</h4>
+        <ul>
+          <li><a href="about.html">Qui suis-je ?</a></li>
+          <li><a href="about.html">Ma méthode</a></li>
+          <li><a href="about.html">Mes outils</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html">Demander un devis</a></li>
+          <li><a href="contact.html">Me contacter</a></li>
+          <li><a href="#">+33 6 00 00 00 00</a></li>
+          <li><a href="#">contact@folio-web.fr</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Folio. Tous droits réservés.</span>
+      <span><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
