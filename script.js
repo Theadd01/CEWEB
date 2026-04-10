@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ── ÉTINCELLES AU CLIC ── */
-  const sparkColors = ['#7F77DD', '#a89ef5', '#c4b9ff', '#5b54b8', '#ffffff'];
+  const sparkColors = ['#D4713A', '#E8956A', '#f0b482', '#B05A28', '#ffffff'];
   document.addEventListener('click', e => {
     // Ne pas créer de sparks sur les inputs/textareas
     if (['INPUT','TEXTAREA','SELECT','BUTTON'].includes(e.target.tagName)) return;

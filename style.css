@@ -4,26 +4,26 @@
    ================================================ */
 
 /* === GOOGLE FONTS === */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap');
 
 /* === CSS VARIABLES === */
 :root {
-  --bg:          #0a0a0f;
-  --bg-2:        #0d0d16;
-  --bg-card:     #101018;
-  --bg-card-h:   #14141e;
-  --accent:      #7F77DD;
-  --accent-l:    #a89ef5;
-  --accent-d:    #5b54b8;
-  --accent-glow: rgba(127,119,221,0.22);
-  --text:        #eeeef8;
-  --text-2:      #9898b8;
-  --text-muted:  #55556a;
-  --border:      rgba(127,119,221,0.10);
-  --border-h:    rgba(127,119,221,0.28);
+  --bg:          #0C0B09;
+  --bg-2:        #111009;
+  --bg-card:     #181610;
+  --bg-card-h:   #1E1C14;
+  --accent:      #D4713A;
+  --accent-l:    #E8956A;
+  --accent-d:    #B05A28;
+  --accent-glow: rgba(212,113,58,0.22);
+  --text:        #EDE9DC;
+  --text-2:      #9C9580;
+  --text-muted:  #5E5A48;
+  --border:      rgba(212,113,58,0.12);
+  --border-h:    rgba(212,113,58,0.28);
   --nav-h:       72px;
   --r:           12px;
-  --font-body:   'Inter', -apple-system, sans-serif;
+  --font-body:   'DM Sans', -apple-system, sans-serif;
   --font-title:  'Playfair Display', Georgia, serif;
   --ease:        cubic-bezier(0.4,0,0.2,1);
   --t:           0.3s;
@@ -53,8 +53,8 @@ input, textarea, select { font-family: inherit; }
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(127,119,221,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(127,119,221,0.035) 1px, transparent 1px);
+    linear-gradient(rgba(212,113,58,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,113,58,0.035) 1px, transparent 1px);
   background-size: 64px 64px;
   pointer-events: none;
   z-index: 0;
@@ -75,7 +75,7 @@ input, textarea, select { font-family: inherit; }
 h1,h2,h3,h4,h5 { font-family: var(--font-title); font-weight: 700; line-height: 1.15; }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent-l) 0%, var(--accent) 45%, #5b54c8 100%);
+  background: linear-gradient(135deg, var(--accent-l) 0%, var(--accent) 55%, var(--accent-d) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -121,7 +121,7 @@ nav {
   transition: background var(--t) var(--ease), border-color var(--t) var(--ease);
 }
 nav.scrolled {
-  background: rgba(10,10,15,0.88);
+  background: rgba(12,11,9,0.92);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
@@ -212,7 +212,7 @@ nav.scrolled {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(10,10,15,0.97);
+  background: rgba(12,11,9,0.97);
   backdrop-filter: blur(24px);
   z-index: 998;
   flex-direction: column;
@@ -287,9 +287,9 @@ nav.scrolled {
 .badge {
   display: inline-block;
   padding: 4px 12px;
-  background: rgba(127,119,221,0.12);
+  background: rgba(212,113,58,0.12);
   color: var(--accent-l);
-  border: 1px solid rgba(127,119,221,0.2);
+  border: 1px solid rgba(212,113,58,0.2);
   border-radius: 100px;
   font-size: 12px;
   font-weight: 500;
@@ -404,7 +404,7 @@ footer {
   top: 0; left: 0;
   height: 2px;
   width: 0%;
-  background: linear-gradient(90deg, var(--accent-d), var(--accent-l), #a78bfa);
+  background: linear-gradient(90deg, var(--accent-d), var(--accent-l), #f0b482);
   z-index: 9999;
   transition: width 0.08s linear;
   pointer-events: none;
@@ -466,14 +466,14 @@ footer {
   50%      { transform: translateY(-50%) translateY(-16px); }
 }
 .mockup-browser {
-  background: #1a1a2e;
+  background: #1C1B12;
   border: 1px solid var(--border-h);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px var(--border);
 }
 .mockup-bar {
-  background: #141420;
+  background: #181710;
   padding: 10px 16px;
   display: flex; align-items: center; gap: 6px;
   border-bottom: 1px solid var(--border);
@@ -524,7 +524,7 @@ footer {
 .portfolio-item:hover img { transform: scale(1.04); opacity: 1; }
 .portfolio-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(10,10,15,0.9) 100%);
+  background: linear-gradient(180deg, transparent 40%, rgba(12,11,9,0.9) 100%);
   display: flex; flex-direction: column;
   justify-content: flex-end; padding: 20px;
   opacity: 0; transition: opacity var(--t);
@@ -550,7 +550,7 @@ footer {
   position: fixed;
   width: 300px; height: 300px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(127,119,221,0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(212,113,58,0.06) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
   transform: translate(-50%, -50%);
