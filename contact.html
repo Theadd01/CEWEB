@@ -42,17 +42,13 @@
   <style>
     /* ── PAGE HERO ── */
     .page-hero {
-      min-height: 44vh; display: flex; align-items: center;
-      padding-top: var(--nav-h); position: relative; overflow: hidden;
+      min-height: 38vh; display: flex; align-items: center;
+      padding-top: var(--nav-h); background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
     }
-    .page-hero-blob {
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(212,113,58,0.14) 0%, transparent 70%);
-      top: -100px; right: -100px;
-    }
-    .page-hero-content { max-width: 660px; }
-    .page-hero-content h1 { font-size: clamp(34px, 5vw, 62px); margin-bottom: 20px; }
-    .page-hero-content p  { font-size: 18px; color: var(--text-2); line-height: 1.8; }
+    .page-hero-content { max-width: 600px; }
+    .page-hero-content h1 { font-size: clamp(28px, 4.5vw, 52px); margin-bottom: 16px; }
+    .page-hero-content p  { font-size: 16px; color: var(--text-2); line-height: 1.8; }
 
     /* ── CONTACT LAYOUT ── */
     .contact-grid {
@@ -76,9 +72,9 @@
     .contact-item-icon {
       width: 40px; height: 40px;
       display: flex; align-items: center; justify-content: center;
-      background: rgba(212,113,58,0.1);
-      border: 1px solid rgba(212,113,58,0.15);
-      border-radius: 10px; color: var(--accent-l); flex-shrink: 0;
+      background: rgba(212,113,58,0.08);
+      border: 1px solid rgba(212,113,58,0.18);
+      border-radius: 10px; color: var(--accent); flex-shrink: 0;
     }
     .contact-item-icon svg { width: 18px; height: 18px; }
     .contact-item-text .label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 3px; }
@@ -198,8 +194,7 @@
 </div>
 
 <!-- ── PAGE HERO ── -->
-<section class="page-hero grid-bg section" style="padding-bottom:0;">
-  <div class="glow-blob page-hero-blob"></div>
+<section class="page-hero section" style="padding-bottom:0;">
   <div class="container">
     <div class="page-hero-content">
       <div class="section-tag reveal">Devis gratuit</div>
@@ -368,7 +363,7 @@
 </section>
 
 <!-- ── FAQ ── -->
-<section class="section faq-section grid-bg">
+<section class="section faq-section">
   <div class="container">
     <div class="section-header">
       <div class="section-tag reveal">FAQ</div>

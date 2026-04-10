@@ -23,17 +23,13 @@
   <style>
     /* ── PAGE HERO ── */
     .page-hero {
-      min-height: 50vh; display: flex; align-items: center;
-      padding-top: var(--nav-h); position: relative; overflow: hidden;
+      min-height: 42vh; display: flex; align-items: center;
+      padding-top: var(--nav-h); background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
     }
-    .page-hero-blob {
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(212,113,58,0.13) 0%, transparent 70%);
-      top: -200px; right: -150px;
-    }
-    .page-hero-content { max-width: 680px; }
-    .page-hero-content h1 { font-size: clamp(36px, 5vw, 66px); margin-bottom: 22px; }
-    .page-hero-content p  { font-size: 18px; color: var(--text-2); line-height: 1.8; }
+    .page-hero-content { max-width: 640px; }
+    .page-hero-content h1 { font-size: clamp(30px, 4.5vw, 56px); margin-bottom: 18px; }
+    .page-hero-content p  { font-size: 17px; color: var(--text-2); line-height: 1.8; }
 
     /* ── OFFRES CARDS ── */
     .offres-list { display: flex; flex-direction: column; gap: 24px; }
@@ -47,7 +43,7 @@
     }
     .offre-detail:hover {
       border-color: var(--border-h);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+      box-shadow: var(--shadow-md);
     }
 
     .offre-left {
@@ -70,10 +66,8 @@
 
     .offre-left-bottom { margin-top: 28px; }
     .offre-price {
-      font-family: var(--font-title); font-size: 36px; font-weight: 900;
-      background: linear-gradient(135deg, var(--accent-l), var(--accent));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-      line-height: 1;
+      font-family: var(--font-title); font-size: 34px; font-weight: 900;
+      color: var(--accent); line-height: 1;
     }
     .offre-price-sub { font-size: 13px; color: var(--text-muted); margin-top: 5px; }
     .offre-delai-badge {
@@ -108,7 +102,7 @@
     .option-card { padding: 28px; }
     .option-card h3 { font-size: 16px; margin-bottom: 8px; font-family: var(--font-body); font-weight: 600; }
     .option-card p  { font-size: 13px; color: var(--text-muted); line-height: 1.75; margin-bottom: 12px; }
-    .option-price { font-size: 18px; font-weight: 700; color: var(--accent-l); }
+    .option-price { font-size: 18px; font-weight: 700; color: var(--accent); }
 
     /* ── GARANTIES ── */
     .garanties-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -162,8 +156,7 @@
 </div>
 
 <!-- ── PAGE HERO ── -->
-<section class="page-hero grid-bg section">
-  <div class="glow-blob page-hero-blob"></div>
+<section class="page-hero section">
   <div class="container">
     <div class="page-hero-content">
       <div class="section-tag reveal">Nos offres</div>
@@ -375,7 +368,7 @@
 </section>
 
 <!-- ── GARANTIES ── -->
-<section class="section grid-bg">
+<section class="section bg-2">
   <div class="container">
     <div class="section-header">
       <div class="section-tag reveal">Mes engagements</div>

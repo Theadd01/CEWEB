@@ -23,117 +23,74 @@
   <style>
     /* ── PAGE HERO ── */
     .page-hero {
-      min-height: 50vh; display: flex; align-items: center;
-      padding-top: var(--nav-h); position: relative; overflow: hidden;
+      min-height: 44vh; display: flex; align-items: center;
+      padding-top: var(--nav-h); background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
     }
-    .page-hero-blob {
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(212,113,58,0.13) 0%, transparent 70%);
-      top: -200px; left: -150px;
-    }
-    .page-hero-content { max-width: 700px; }
-    .page-hero-content h1 { font-size: clamp(36px, 5vw, 66px); margin-bottom: 22px; }
-    .page-hero-content p  { font-size: 18px; color: var(--text-2); line-height: 1.85; }
+    .page-hero-content { max-width: 680px; }
+    .page-hero-content h1 { font-size: clamp(32px, 4.5vw, 58px); margin-bottom: 18px; }
+    .page-hero-content p  { font-size: 17px; color: var(--text-2); line-height: 1.85; }
 
     /* ── PRÉSENTATION ── */
-    .intro-grid {
-      display: grid; grid-template-columns: 1fr 1.3fr;
-      gap: 72px; align-items: center;
-    }
-    .intro-left {}
-    .intro-portrait {
-      width: 100%; aspect-ratio: 3/4; max-width: 360px;
-      border-radius: 20px; overflow: hidden;
-      background: linear-gradient(160deg, rgba(212,113,58,0.15) 0%, rgba(176,90,40,0.06) 100%);
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-    }
-    .intro-portrait::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(10,10,15,0.6) 100%);
-    }
-    .portrait-placeholder {
-      font-family: var(--font-title); font-size: 120px; font-weight: 900;
-      color: var(--accent-l); opacity: 0.15; user-select: none;
-    }
-    .intro-right {}
-    .intro-right h2 { font-size: clamp(26px, 3.5vw, 42px); margin-bottom: 22px; }
-    .intro-right p  { font-size: 16px; color: var(--text-2); line-height: 1.9; margin-bottom: 20px; }
-    .intro-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center; }
+    .intro-right h2 { font-size: clamp(24px, 3vw, 38px); margin-bottom: 18px; }
+    .intro-right p  { font-size: 15px; color: var(--text-2); line-height: 1.9; margin-bottom: 16px; }
+    .intro-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
     .intro-tag {
-      padding: 7px 16px;
-      background: rgba(212,113,58,0.1);
-      border: 1px solid rgba(212,113,58,0.18);
-      border-radius: 100px; font-size: 13px; color: var(--accent-l);
+      padding: 5px 14px;
+      background: rgba(212,113,58,0.08);
+      border: 1px solid rgba(212,113,58,0.20);
+      border-radius: 100px; font-size: 12px; font-weight: 600; color: var(--accent);
     }
 
     /* ── POURQUOI MOI ── */
-    .pourquoi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .pourquoi-card { padding: 36px; position: relative; overflow: hidden; }
-    .pourquoi-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0; transition: opacity var(--t);
-    }
-    .pourquoi-card:hover::before { opacity: 1; }
+    .pourquoi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .pourquoi-card { padding: 28px; }
     .pourquoi-icon {
-      width: 50px; height: 50px; margin-bottom: 20px;
+      width: 44px; height: 44px; margin-bottom: 16px;
       display: flex; align-items: center; justify-content: center;
-      background: rgba(212,113,58,0.1);
-      border: 1px solid rgba(212,113,58,0.15);
-      border-radius: 12px; color: var(--accent-l);
+      background: rgba(212,113,58,0.08);
+      border: 1px solid rgba(212,113,58,0.18);
+      border-radius: 10px; color: var(--accent);
     }
-    .pourquoi-icon svg { width: 22px; height: 22px; }
-    .pourquoi-card h3 { font-size: 18px; margin-bottom: 12px; }
+    .pourquoi-icon svg { width: 20px; height: 20px; }
+    .pourquoi-card h3 { font-size: 16px; margin-bottom: 10px; font-family: var(--font-title); }
     .pourquoi-card p  { font-size: 14px; color: var(--text-2); line-height: 1.85; }
 
     /* ── OUTILS ── */
     .outils-section { background: var(--bg-2); }
-    .outils-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .outils-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
     .outil-item {
-      padding: 28px 20px; text-align: center;
+      padding: 24px 16px; text-align: center;
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r);
-      transition: border-color var(--t), transform var(--t);
+      border-radius: var(--r); box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--t), transform var(--t);
     }
-    .outil-item:hover { border-color: var(--border-h); transform: translateY(-4px); }
+    .outil-item:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
     .outil-logo {
-      width: 48px; height: 48px; margin: 0 auto 14px;
-      background: rgba(212,113,58,0.1);
+      width: 44px; height: 44px; margin: 0 auto 12px;
+      background: rgba(212,113,58,0.08);
       border: 1px solid rgba(212,113,58,0.15);
-      border-radius: 12px; display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 15px; color: var(--accent-l);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 13px; color: var(--accent);
     }
-    .outil-item .name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-    .outil-item .cat  { font-size: 12px; color: var(--text-muted); }
+    .outil-item .name { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+    .outil-item .cat  { font-size: 11px; color: var(--text-muted); }
 
     /* ── STATS ── */
-    .stats-band {
-      background: var(--bg-2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
+    .stats-band { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .stats-band-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-    .stat-band-item {
-      padding: 48px 24px; text-align: center;
-      border-right: 1px solid var(--border);
-    }
+    .stat-band-item { padding: 40px 20px; text-align: center; border-right: 1px solid var(--border); }
     .stat-band-item:last-child { border-right: none; }
     .stat-band-val {
-      font-family: var(--font-title); font-size: 50px; font-weight: 900; line-height: 1;
-      background: linear-gradient(135deg, var(--accent-l), var(--accent));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-      margin-bottom: 8px;
+      font-family: var(--font-title); font-size: 44px; font-weight: 900;
+      line-height: 1; color: var(--accent); margin-bottom: 6px;
     }
-    .stat-band-label { font-size: 14px; color: var(--text-2); }
+    .stat-band-label { font-size: 13px; color: var(--text-2); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .intro-grid { grid-template-columns: 1fr; gap: 48px; }
-      .intro-portrait { max-width: 280px; aspect-ratio: 1; }
+      .intro-grid { grid-template-columns: 1fr; gap: 40px; }
       .pourquoi-grid { grid-template-columns: repeat(2, 1fr); }
       .outils-grid { grid-template-columns: repeat(3, 1fr); }
       .stats-band-grid { grid-template-columns: repeat(2, 1fr); }
@@ -144,9 +101,6 @@
       .outils-grid { grid-template-columns: repeat(2, 1fr); }
       .stats-band-grid { grid-template-columns: repeat(2, 1fr); }
       .stat-band-item { border-right: none; border-bottom: 1px solid var(--border); }
-    }
-    @media (max-width: 480px) {
-      .outils-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -175,8 +129,7 @@
 </div>
 
 <!-- ── PAGE HERO ── -->
-<section class="page-hero grid-bg section">
-  <div class="glow-blob page-hero-blob"></div>
+<section class="page-hero section">
   <div class="container">
     <div class="page-hero-content">
       <div class="section-tag reveal">Qui suis-je ?</div>
@@ -244,7 +197,7 @@
 </div>
 
 <!-- ── POURQUOI MOI ── -->
-<section class="section grid-bg">
+<section class="section bg-2">
   <div class="container">
     <div class="section-header">
       <div class="section-tag reveal">Pourquoi choisir CEWEB ?</div>
@@ -339,9 +292,8 @@
 </section>
 
 <!-- ── CTA ── -->
-<section class="section" style="padding:90px 0;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%, rgba(212,113,58,0.08) 0%, transparent 70%);"></div>
-  <div style="position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto;padding:0 24px;">
+<section class="section bg-2" style="border-top:1px solid var(--border);">
+  <div style="text-align:center;max-width:600px;margin:0 auto;padding:0 24px;">
     <div class="section-tag reveal" style="justify-content:center">On se parle ?</div>
     <h2 class="reveal delay-1" style="font-size:clamp(30px,4.5vw,52px);margin-bottom:20px;">Racontez-moi votre <span class="gradient-text">projet</span></h2>
     <p class="reveal delay-2" style="font-size:17px;color:var(--text-2);margin-bottom:40px;">Un appel de 20 minutes ou un mail — je vous réponds sous 24h avec un devis gratuit et détaillé. Pas de jargon, pas d'engagement.</p>
