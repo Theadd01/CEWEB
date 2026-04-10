@@ -24,8 +24,17 @@
     /* ── PAGE HERO ── */
     .page-hero {
       min-height: 44vh; display: flex; align-items: center;
-      padding-top: var(--nav-h); background: var(--bg-2);
+      padding-top: var(--nav-h);
+      background: linear-gradient(135deg, #FEFDF9 50%, #FEF0DC 100%);
       border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute; right: -60px; top: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(212,113,58,0.12) 0%, transparent 65%);
+      pointer-events: none;
     }
     .page-hero-content { max-width: 680px; }
     .page-hero-content h1 { font-size: clamp(32px, 4.5vw, 58px); margin-bottom: 18px; }
@@ -78,15 +87,15 @@
     .outil-item .cat  { font-size: 11px; color: var(--text-muted); }
 
     /* ── STATS ── */
-    .stats-band { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stats-band { background: var(--navy); }
     .stats-band-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-    .stat-band-item { padding: 40px 20px; text-align: center; border-right: 1px solid var(--border); }
+    .stat-band-item { padding: 40px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.12); }
     .stat-band-item:last-child { border-right: none; }
     .stat-band-val {
       font-family: var(--font-title); font-size: 44px; font-weight: 900;
-      line-height: 1; color: var(--accent); margin-bottom: 6px;
+      line-height: 1; color: var(--accent-l); margin-bottom: 6px;
     }
-    .stat-band-label { font-size: 13px; color: var(--text-2); }
+    .stat-band-label { font-size: 13px; color: rgba(255,255,255,0.65); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
@@ -292,14 +301,15 @@
 </section>
 
 <!-- ── CTA ── -->
-<section class="section bg-2" style="border-top:1px solid var(--border);">
-  <div style="text-align:center;max-width:600px;margin:0 auto;padding:0 24px;">
-    <div class="section-tag reveal" style="justify-content:center">On se parle ?</div>
-    <h2 class="reveal delay-1" style="font-size:clamp(30px,4.5vw,52px);margin-bottom:20px;">Racontez-moi votre <span class="gradient-text">projet</span></h2>
-    <p class="reveal delay-2" style="font-size:17px;color:var(--text-2);margin-bottom:40px;">Un appel de 20 minutes ou un mail — je vous réponds sous 24h avec un devis gratuit et détaillé. Pas de jargon, pas d'engagement.</p>
+<section style="padding:90px 0;background:var(--accent);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-d) 0%,var(--accent) 50%,var(--accent-l) 100%);opacity:0.6;"></div>
+  <div style="position:relative;z-index:1;text-align:center;max-width:600px;margin:0 auto;padding:0 24px;">
+    <div class="section-tag reveal" style="justify-content:center;color:rgba(255,255,255,0.85);">On se parle ?</div>
+    <h2 class="reveal delay-1" style="font-size:clamp(30px,4.5vw,52px);margin-bottom:20px;color:#fff;">Racontez-moi votre projet</h2>
+    <p class="reveal delay-2" style="font-size:17px;color:rgba(255,255,255,0.85);margin-bottom:40px;">Un appel de 20 minutes ou un mail — je vous réponds sous 24h avec un devis gratuit et détaillé. Pas de jargon, pas d'engagement.</p>
     <div class="reveal delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="contact.html" class="btn btn-primary">Demander un devis gratuit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="services.html" class="btn btn-outline">Voir les offres</a>
+      <a href="contact.html" class="btn" style="background:#fff;color:var(--accent-d);border:2px solid #fff;font-weight:600;font-size:15px;">Demander un devis gratuit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="services.html" class="btn" style="border:2px solid rgba(255,255,255,0.55);color:#fff;background:rgba(255,255,255,0.08);font-weight:600;font-size:15px;">Voir les offres</a>
     </div>
   </div>
 </section>

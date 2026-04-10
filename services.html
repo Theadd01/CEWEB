@@ -24,8 +24,17 @@
     /* ── PAGE HERO ── */
     .page-hero {
       min-height: 42vh; display: flex; align-items: center;
-      padding-top: var(--nav-h); background: var(--bg-2);
+      padding-top: var(--nav-h);
+      background: linear-gradient(135deg, #FEFDF9 50%, #FEF0DC 100%);
       border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute; right: -60px; top: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(212,113,58,0.12) 0%, transparent 65%);
+      pointer-events: none;
     }
     .page-hero-content { max-width: 640px; }
     .page-hero-content h1 { font-size: clamp(30px, 4.5vw, 56px); margin-bottom: 18px; }
@@ -400,15 +409,18 @@
 </section>
 
 <!-- ── CTA ── -->
-<section class="section" style="padding:90px 0;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%, rgba(212,113,58,0.08) 0%, transparent 70%);"></div>
+<section style="padding:90px 0;background:var(--accent);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-d) 0%,var(--accent) 50%,var(--accent-l) 100%);opacity:0.6;"></div>
   <div style="position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto;padding:0 24px;">
-    <div class="section-tag reveal" style="justify-content:center">Prêt à démarrer ?</div>
-    <h2 class="reveal delay-1" style="font-size:clamp(30px,4.5vw,52px);margin-bottom:20px;">Parlez-moi de votre <span class="gradient-text">projet</span></h2>
-    <p class="reveal delay-2" style="font-size:17px;color:var(--text-2);margin-bottom:40px;">Devis gratuit et personnalisé sous 24h. Sans engagement.</p>
+    <div class="section-tag reveal" style="justify-content:center;color:rgba(255,255,255,0.85);">
+      <style>.cta-stag::before{background:rgba(255,255,255,0.6)!important;}</style>
+      Prêt à démarrer ?
+    </div>
+    <h2 class="reveal delay-1" style="font-size:clamp(30px,4.5vw,52px);margin-bottom:20px;color:#fff;">Parlez-moi de votre projet</h2>
+    <p class="reveal delay-2" style="font-size:17px;color:rgba(255,255,255,0.85);margin-bottom:40px;">Devis gratuit et personnalisé sous 24h. Sans engagement.</p>
     <div class="reveal delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="contact.html" class="btn btn-primary">Demander un devis gratuit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="about.html" class="btn btn-outline">Qui suis-je ?</a>
+      <a href="contact.html" class="btn" style="background:#fff;color:var(--accent-d);border:2px solid #fff;font-weight:600;font-size:15px;">Demander un devis gratuit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="about.html" class="btn" style="border:2px solid rgba(255,255,255,0.55);color:#fff;background:rgba(255,255,255,0.08);font-weight:600;font-size:15px;">Qui suis-je ?</a>
     </div>
   </div>
 </section>
